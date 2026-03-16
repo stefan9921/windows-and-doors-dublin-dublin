@@ -1,22 +1,39 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Breadcrumbs from "../components/Breadcrumbs";
+import JsonLd from "../components/JsonLd";
 import { Metadata } from "next";
+import { makeBreadcrumbSchema, makeLocalBusinessSchema, BASE_URL } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Contact Windows and Doors Dublin | Free Quotes",
-  description: "Get in touch with Windows and Doors Dublin for a free quote. Call 087777777 or fill out our contact form.",
+  description: "Get in touch with Windows and Doors Dublin for a free quote on window and door installation, replacement or repair. Call 087777777 or fill out our form.",
+  alternates: { canonical: `${BASE_URL}/contact` },
+  openGraph: {
+    title: "Contact Windows and Doors Dublin | Free Quotes",
+    description: "Contact us for free window and door quotes in Dublin. Call 087777777.",
+    url: `${BASE_URL}/contact`,
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={makeLocalBusinessSchema()} />
+      <JsonLd data={makeBreadcrumbSchema([
+        { name: "Home", url: BASE_URL },
+        { name: "Contact", url: `${BASE_URL}/contact` },
+      ])} />
       <Header />
+
       <section className="bg-soft-violet py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumbs items={[{ name: "Contact" }]} />
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6">Contact Us</h1>
-          <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">Ready to start your project? Get in touch for a free, no-obligation quote.</p>
+          <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">Ready to start your project? Get in touch for a free, no-obligation quote on any window or door service in Dublin.</p>
         </div>
       </section>
+
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
@@ -43,6 +60,8 @@ export default function ContactPage() {
                   <option>Windows Replacement</option>
                   <option>Doors Installation</option>
                   <option>Doors Replacement</option>
+                  <option>Window Repair</option>
+                  <option>Door Repair</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -73,9 +92,14 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
+            <div className="bg-background-light p-6 rounded-xl">
+              <h3 className="font-bold text-lg mb-3">Service Areas</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">We serve all of Dublin city and suburbs, plus Swords, Tallaght, Blanchardstown, Lucan, Bray, Dún Laoghaire, Dundrum, Drogheda, Navan, Naas, Mullingar, Ashbourne, and Celbridge.</p>
+            </div>
           </div>
         </div>
       </section>
+
       <Footer />
     </>
   );

@@ -17,7 +17,7 @@ export default function Header() {
           <nav className="hidden md:flex items-center gap-8">
             <Link className="text-sm font-semibold hover:text-primary transition-colors" href="/">Home</Link>
             <Link className="text-sm font-semibold hover:text-primary transition-colors" href="/services/windows-installation">Services</Link>
-            <Link className="text-sm font-semibold hover:text-primary transition-colors" href="/areas/swords">Areas</Link>
+            <Link className="text-sm font-semibold hover:text-primary transition-colors" href="/areas">Areas</Link>
             <Link className="text-sm font-semibold hover:text-primary transition-colors" href="/about">About</Link>
             <Link className="text-sm font-semibold hover:text-primary transition-colors" href="/contact">Contact</Link>
           </nav>
@@ -38,7 +38,7 @@ export default function Header() {
           <nav className="md:hidden pb-4 flex flex-col gap-3">
             <Link className="text-sm font-semibold hover:text-primary" href="/" onClick={() => setMobileOpen(false)}>Home</Link>
             <Link className="text-sm font-semibold hover:text-primary" href="/services/windows-installation" onClick={() => setMobileOpen(false)}>Services</Link>
-            <Link className="text-sm font-semibold hover:text-primary" href="/areas/swords" onClick={() => setMobileOpen(false)}>Areas</Link>
+            <Link className="text-sm font-semibold hover:text-primary" href="/areas" onClick={() => setMobileOpen(false)}>Areas</Link>
             <Link className="text-sm font-semibold hover:text-primary" href="/about" onClick={() => setMobileOpen(false)}>About</Link>
             <Link className="text-sm font-semibold hover:text-primary" href="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
           </nav>
